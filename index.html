@@ -88,11 +88,26 @@
       if (event.key === 'Escape' && !modal.hidden) closeModal();
     });
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const email = new FormData(form).get('email');
-      note.textContent = `You're on the early list: ${email}`;
-      form.reset();
+      const submitButton = form.querySelector('button[type="submit"]');
+      const email = String(new FormData(form).get('email') || '').trim();
+      note.textContent = 'Adding you to the daily workflow emails...';
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch('/api/grab', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: 'tylerpratt-homepage-daily-emails' }),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) throw new Error(result.error || 'Signup failed');
+        window.location.href = '/thank-you.html?lead=1';
+      } catch (error) {
+        note.textContent = 'Something did not go through. Try again in a second.';
+        submitButton.disabled = false;
+      }
     });
   </script>
 </body>

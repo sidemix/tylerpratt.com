@@ -281,6 +281,56 @@ h1 {
   cursor: pointer;
 }
 
+.signup-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.thank-you-shell {
+  min-height: 100vh;
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  padding: 48px 0;
+}
+
+.thank-you-card {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: rgba(13, 19, 15, 0.94);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
+  padding: clamp(28px, 6vw, 64px);
+  text-align: center;
+}
+
+.thank-you-card h1 {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: clamp(2.25rem, 6vw, 4.4rem);
+}
+
+.thank-you-card .underline {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thank-you-copy {
+  max-width: 690px;
+  margin: 22px auto 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.thank-you-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
 .form-note {
   margin: 12px 0 0;
   font-size: 0.95rem;
