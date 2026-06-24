@@ -29,7 +29,7 @@ input { font: inherit; }
 .page-shell {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
-  padding: clamp(28px, 5vw, 52px) 0 48px;
+  padding: clamp(18px, 2.5vw, 30px) 0 24px;
 }
 
 .hero {
@@ -40,20 +40,20 @@ input { font: inherit; }
 }
 
 .founder-photo {
-  width: 86px;
-  height: 86px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 24%;
   box-shadow: 0 12px 30px rgba(16, 20, 24, 0.16);
   border: 4px solid #fff;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
 .eyebrow {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   color: #69707a;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 850;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -62,37 +62,37 @@ input { font: inherit; }
 h1 {
   max-width: 1010px;
   margin: 0;
-  font-size: clamp(2.65rem, 5.9vw, 5.15rem);
-  line-height: 1.04;
-  letter-spacing: -0.025em;
+  font-size: clamp(2.25rem, 4.7vw, 4.15rem);
+  line-height: 1.02;
+  letter-spacing: -0.018em;
   font-weight: 880;
 }
 
 .underline {
-  width: min(860px, 92%);
-  height: 15px;
+  width: min(760px, 86%);
+  height: 10px;
   border-radius: 999px;
   background: var(--accent);
-  margin: 8px 0 clamp(32px, 4vw, 46px);
+  margin: 8px 0 clamp(18px, 2.4vw, 28px);
 }
 
 .subtitle {
-  max-width: 900px;
+  max-width: 790px;
   margin: 0;
   color: #121820;
-  font-size: clamp(1.45rem, 2.7vw, 2.25rem);
-  line-height: 1.55;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.1rem, 1.85vw, 1.55rem);
+  line-height: 1.42;
+  letter-spacing: -0.015em;
 }
 
 .cta-button {
-  margin-top: 34px;
-  border: 4px solid var(--accent-soft);
+  margin-top: 22px;
+  border: 3px solid var(--accent-soft);
   background: #ffe18d;
   color: #05070a;
-  min-height: 72px;
-  padding: 0 38px;
-  font-size: clamp(1rem, 2vw, 1.28rem);
+  min-height: 56px;
+  padding: 0 32px;
+  font-size: clamp(0.95rem, 1.45vw, 1.08rem);
   font-weight: 900;
   letter-spacing: 0.12em;
   cursor: pointer;
@@ -109,34 +109,34 @@ h1 {
 
 .microcopy {
   max-width: 640px;
-  margin: 18px auto 0;
+  margin: 12px auto 0;
   color: #59616b;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.45;
 }
 
 .testimonial {
-  margin-top: 34px;
+  margin-top: 18px;
   display: flex;
   justify-content: center;
 }
 
 .testimonial-card {
-  width: min(850px, 100%);
+  width: min(760px, 100%);
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(22px, 5vw, 46px);
+  gap: clamp(16px, 3vw, 28px);
   align-items: center;
   border: 1px solid var(--line);
   border-radius: 22px;
-  padding: clamp(24px, 5vw, 54px);
+  padding: clamp(16px, 2.4vw, 24px);
   background: #fff;
 }
 
 .testimonial-image-wrap {
   aspect-ratio: 1;
   width: 100%;
-  max-width: 325px;
+  max-width: 190px;
   justify-self: center;
   border-radius: 50%;
   overflow: hidden;
@@ -152,15 +152,15 @@ h1 {
 
 .quote-card {
   background: #fff;
-  padding: clamp(24px, 4vw, 38px);
+  padding: clamp(18px, 2.4vw, 24px);
   box-shadow: var(--shadow);
 }
 
 .quote {
   margin: 0;
   color: #11161d;
-  font-size: clamp(1.15rem, 2vw, 1.55rem);
-  line-height: 1.58;
+  font-size: clamp(0.98rem, 1.45vw, 1.16rem);
+  line-height: 1.42;
   letter-spacing: -0.015em;
 }
 
@@ -174,15 +174,15 @@ h1 {
 }
 
 .name {
-  margin: 28px 0 4px;
-  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  margin: 16px 0 3px;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
   line-height: 1.1;
   letter-spacing: -0.04em;
 }
 
 .role {
   margin: 0;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.92rem, 1.4vw, 1.05rem);
   color: #11161d;
   letter-spacing: 0.01em;
 }
@@ -298,10 +298,10 @@ h1 {
 
 @media (max-width: 760px) {
   .page-shell { width: min(100% - 24px, 1120px); }
-  h1 { font-size: clamp(2.75rem, 14vw, 4.6rem); }
-  .subtitle { font-size: 1.25rem; }
+  h1 { font-size: clamp(2.05rem, 10vw, 3.4rem); }
+  .subtitle { font-size: 1.05rem; }
   .underline { height: 10px; width: 96%; }
   .cta-button { width: 100%; padding: 0 18px; letter-spacing: 0.06em; }
-  .testimonial-card { grid-template-columns: 1fr; }
-  .quote-card { padding: 24px; }
+  .testimonial-card { grid-template-columns: 1fr; padding: 16px; }
+  .quote-card { padding: 16px; }
 }
