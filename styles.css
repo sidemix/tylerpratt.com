@@ -62,9 +62,9 @@ input { font: inherit; }
 h1 {
   max-width: 1010px;
   margin: 0;
-  font-size: clamp(3.2rem, 7.4vw, 6.45rem);
-  line-height: 0.98;
-  letter-spacing: -0.07em;
+  font-size: clamp(2.65rem, 5.9vw, 5.15rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
   font-weight: 880;
 }
 
