@@ -3,63 +3,97 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tyler Pratt — Builder, Operator, Pilot</title>
-  <meta name="description" content="Tyler Pratt builds and operates practical AI, healthcare, trading, and growth systems." />
-  <meta property="og:title" content="Tyler Pratt" />
-  <meta property="og:description" content="Builder. Operator. Pilot. Practical systems for clinics, growth, automation, and edge-finding." />
+  <title>AI Workflows for Entrepreneurs & Small Businesses | Tyler Pratt</title>
+  <meta name="description" content="Every week Tyler Pratt finds a real business problem, builds an AI solution, documents the workflow, and gives members everything needed to implement it themselves." />
+  <meta property="og:title" content="AI Workflows for Entrepreneurs & Small Businesses" />
+  <meta property="og:description" content="Real AI workflows for real business problems — documented and ready to implement." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tylerpratt.com/" />
-  <meta name="theme-color" content="#0b1220" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M14 20h36v8H36v22h-8V28H14z' fill='%23ffffff'/%3E%3C/svg%3E" />
+  <meta property="og:image" content="https://tylerpratt.com/assets/tyler-ai-hq.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101418'/%3E%3Cpath d='M14 20h36v8H36v22h-8V28H14z' fill='%23ffde2e'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <main class="shell">
-    <nav class="nav" aria-label="Primary">
-      <a class="brand" href="/" aria-label="Tyler Pratt home">
-        <span class="mark">TP</span>
-        <span>Tyler Pratt</span>
-      </a>
-      <a class="nav-link" href="mailto:tyler@tylerpratt.com">Contact</a>
-    </nav>
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="founder-photo" src="/assets/tyler-ai-hq.png" alt="Tyler Pratt wearing an AI HQ hat" />
 
-    <section class="hero">
-      <div class="eyebrow">Builder · Operator · Pilot</div>
-      <h1>Practical systems for businesses that need lift, not noise.</h1>
-      <p class="lede">I build and operate focused systems across healthcare funnels, AI automation, trading research, and direct-response growth — with a pilot’s bias for checklists, clean execution, and safe arrivals.</p>
-      <div class="actions">
-        <a class="button primary" href="mailto:tyler@tylerpratt.com">Get in touch</a>
-        <a class="button secondary" href="#work">See focus areas</a>
+      <p class="eyebrow">Weekly AI workflow drops</p>
+      <h1 id="hero-title">AI Workflows for Entrepreneurs &amp; Small Businesses</h1>
+      <div class="underline" aria-hidden="true"></div>
+      <p class="subtitle">Every week I find a real business problem, build an AI solution, document the workflow, and give members everything needed to implement it themselves.</p>
+
+      <button class="cta-button" type="button" data-open-modal>Join 15k Small Businesses</button>
+
+      <p class="microcopy">No AI hype. Just practical workflows you can copy, adapt, and use in the business you already run.</p>
+    </section>
+
+    <section class="testimonial" aria-labelledby="testimonial-title">
+      <div class="testimonial-card">
+        <div class="testimonial-image-wrap">
+          <img src="/assets/brian-adams-uptoma.jpeg" alt="Brian Adams, CEO of UPToma" />
+        </div>
+        <div class="quote-card">
+          <p id="testimonial-title" class="quote">“Tyler’s workflows make AI practical. They are clear, direct, and built for small business owners who need useful systems — not another pile of tools.”</p>
+          <p class="name">Brian Adams</p>
+          <p class="role">CEO, UPToma</p>
+        </div>
       </div>
     </section>
-
-    <section id="work" class="grid" aria-label="Focus areas">
-      <article class="card">
-        <span class="kicker">Clinics</span>
-        <h2>Patient acquisition systems</h2>
-        <p>Funnels, intake, booking, CRM workflows, and follow-up engines for clinics that want appointments instead of dashboards.</p>
-      </article>
-      <article class="card">
-        <span class="kicker">Automation</span>
-        <h2>AI business operations</h2>
-        <p>Agent-backed workflows that replace repeated manual work with reviewable, measurable operating loops.</p>
-      </article>
-      <article class="card">
-        <span class="kicker">Markets</span>
-        <h2>Edge-finding bots</h2>
-        <p>Research, monitoring, and trading infrastructure built around verification, risk controls, and fast feedback.</p>
-      </article>
-    </section>
-
-    <section class="note">
-      <p><strong>Current status:</strong> rebuilding this site as Tyler’s public home base. More case studies, essays, and project links are coming next.</p>
-    </section>
-
-    <footer>
-      <span>© <span id="year"></span> Tyler Pratt</span>
-      <span>Built steady. Shipped clean.</span>
-    </footer>
   </main>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <div class="modal-backdrop" data-modal hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-copy">
+      <button class="close-button" type="button" aria-label="Close popup" data-close-modal>&times;</button>
+      <p class="modal-kicker">Join the weekly workflow list</p>
+      <h2 id="modal-title">Get the next AI workflow.</h2>
+      <p id="modal-copy">Drop your email and I’ll send practical AI workflow breakdowns for entrepreneurs and small business owners.</p>
+      <form class="signup-form" id="signup-form">
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Email address" required />
+        <button type="submit">Join 15k Small Businesses</button>
+      </form>
+      <p class="form-note" data-form-note>We’ll connect this to the live email system next.</p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.querySelector('[data-modal]');
+    const openButtons = document.querySelectorAll('[data-open-modal]');
+    const closeButtons = document.querySelectorAll('[data-close-modal]');
+    const emailInput = document.querySelector('#email');
+    const form = document.querySelector('#signup-form');
+    const note = document.querySelector('[data-form-note]');
+
+    function openModal() {
+      modal.hidden = false;
+      document.body.classList.add('modal-open');
+      setTimeout(() => emailInput.focus(), 50);
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      document.body.classList.remove('modal-open');
+    }
+
+    openButtons.forEach((button) => button.addEventListener('click', openModal));
+    closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const email = new FormData(form).get('email');
+      note.textContent = `You're on the early list: ${email}`;
+      form.reset();
+    });
+  </script>
 </body>
 </html>
