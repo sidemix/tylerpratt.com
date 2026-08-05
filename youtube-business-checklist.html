@@ -86,7 +86,8 @@
         <div class="answers"><label class="answer"><input type="radio" name="readiness" value="1">Yes, this is clear</label><label class="answer"><input type="radio" name="readiness" value="0">Not yet</label></div>
       </fieldset>
 
-      <div class="controls"><button class="back" id="back" type="button" hidden>Back</button><button class="next" id="next" type="button" disabled>Continue</button><button class="score" id="score" type="submit" hidden disabled>See My Score</button></div>
+      <div class="controls"><button class="back" id="back" type="button" hidden>Back</button><button class="score" id="score" type="submit" hidden disabled>See My Score</button></div>
+      <div id="answer-status" class="sr-only" aria-live="polite"></div>
     </form>
     <p class="privacy"><span><b>Your answers stay in this browser.</b> The score page only receives the numbers needed to show your result.</span></p>
     <footer class="funnel-footer"><span>© Pratt Media</span><a href="/articles">Articles</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:tyler@myaibusinesshq.com">Contact</a></footer>
@@ -94,21 +95,38 @@
 
   <script>
     const questions=[...document.querySelectorAll('.question')];
-    const back=document.getElementById('back'),next=document.getElementById('next'),scoreButton=document.getElementById('score');
-    let current=0;
+    const back=document.getElementById('back'),scoreButton=document.getElementById('score'),answerStatus=document.getElementById('answer-status');
+    let current=0,advanceTimer=null;
     function selected(){return questions[current].querySelector('input:checked')}
     function render(){
       questions.forEach((q,i)=>q.hidden=i!==current);
       document.getElementById('progress-label').textContent=`Question ${current+1} of ${questions.length}`;
       document.getElementById('progress-bar').style.width=`${(current+1)/questions.length*100}%`;
-      back.hidden=current===0;next.hidden=current===questions.length-1;scoreButton.hidden=current!==questions.length-1;
-      next.disabled=!selected();scoreButton.disabled=!selected();
+      back.hidden=current===0;scoreButton.hidden=current!==questions.length-1;
+      scoreButton.disabled=!selected();
       const cat=questions[current].dataset.category;document.querySelectorAll('[data-cat]').forEach(x=>x.classList.toggle('active',x.dataset.cat===cat));
-      window.scrollTo({top:0,behavior:'smooth'});
+      const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
     }
-    questions.forEach(q=>q.addEventListener('change',()=>{next.disabled=!selected();scoreButton.disabled=!selected()}));
-    next.addEventListener('click',()=>{if(selected()){current++;render()}});
-    back.addEventListener('click',()=>{current--;render()});
+    function queueAdvance(q){
+      scoreButton.disabled=!selected();
+      if(current===questions.length-1)return;
+      clearTimeout(advanceTimer);
+      answerStatus.textContent=`Answer selected. Moving to Question ${current+2}.`;
+      advanceTimer=setTimeout(()=>{
+        if(questions[current]!==q||!selected())return;
+        current++;render();
+        const heading=questions[current].querySelector('h2');
+        heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});
+      },400);
+    }
+    questions.forEach(q=>{
+      q.addEventListener('change',()=>queueAdvance(q));
+      q.addEventListener('click',event=>{
+        if(event.target.matches('input[type="radio"]')&&event.target.checked)queueAdvance(q);
+      });
+    });
+    back.addEventListener('click',()=>{clearTimeout(advanceTimer);answerStatus.textContent='';current--;render()});
     document.getElementById('checklist').addEventListener('submit',(event)=>{
       event.preventDefault();if(!selected())return;
       const answers=questions.map(q=>q.querySelector('input:checked'));
