@@ -142,7 +142,10 @@
       });
       const data = await response.json();
       if (!response.ok || !data.ok) throw Object.assign(new Error(data.error || "The review could not be booked."), { code: data.code });
-      showResult("Your review is booked", `${selectedSlot.label}. A Calendar invitation has been sent to the email on your paid order.`, data.booking || {});
+      const delivery = data.emailSent
+        ? "A Calendar invitation and separate confirmation email with your Google Meet link have been sent to the email on your paid order."
+        : "Your Calendar invitation contains the Google Meet link. The separate confirmation email may be delayed.";
+      showResult("Your review is booked", `${selectedSlot.label}. ${delivery}`, data.booking || {});
       setBusy(true, "Booked");
       setStatus("live", "Google Calendar confirmed your reservation.");
     } catch (error) {
